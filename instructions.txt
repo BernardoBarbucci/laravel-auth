@@ -1,0 +1,36 @@
+comandi per creare ed installare il progetto
+
+-
+composer create-project laravel/laravel nome-del-progetto
+
+-
+composer require laravel/ui
+
+- 
+composer require laravel/ui
+
+-
+php artisan ui bootstrap --auth
+
+-
+npm i 
+
+- [start the project from the template] 
+
+{copy paste .env.example e cambia il file nuovo in .env 
++ aggiungi root, nome del database e crea una key con ->
+    - 
+    php artisan key:generate
+}
+
+-
+composer install
+
+-
+npm i 
+
+- 
+npm run dev
+
+-
+php artisan serve

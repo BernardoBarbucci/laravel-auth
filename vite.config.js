@@ -5,10 +5,16 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/sass/app.scss',
+                'resources/scss/app.scss',
                 'resources/js/app.js',
             ],
             refresh: true,
         }),
     ],
+    // aggiunto per la path di sass
+    resolve: {
+        alias: {
+            '~resources': '/resources/',
+        }
+    }
 });

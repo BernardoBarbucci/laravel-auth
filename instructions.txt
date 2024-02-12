@@ -1,4 +1,4 @@
-comandi per creare ed installare il progetto
+        --> comandi per creare ed installare il progetto <--
 
 -
 composer create-project laravel/laravel nome-del-progetto
@@ -37,3 +37,20 @@ php artisan serve
 
 -
 npm install sass
+[ho aggiunto in reources/js/app.js la pat per sass, gli assets e bootstrap, nel caso ricopiarlo e metterlo sotto al bootstrap di laravel:
+    // importo sass
+    import '~resources/scss/app.scss';
+
+    // assets
+    import.meta.glob([
+        '../img/**'
+    ])
+
+    // import bootstrap
+    import * as bootstrap from 'bootstrap';
+]
+
+
+        --> per cominciare a strutturare il progetto creo un controller : <--
+-
+php artisan make:controller NomeCartellaDaCreare\NomeControllerDaCreare

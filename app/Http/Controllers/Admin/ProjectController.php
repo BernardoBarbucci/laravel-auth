@@ -13,7 +13,7 @@ class ProjectController extends Controller
     public function index()
     {
         // stampato in admin/data
-        return 'index del back-office';
+        return view('admin.dashboard');
     }
 
     /**

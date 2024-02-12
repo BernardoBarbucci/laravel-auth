@@ -54,3 +54,10 @@ npm install sass
         --> per cominciare a strutturare il progetto creo un controller : <--
 -
 php artisan make:controller NomeCartellaDaCreare\NomeControllerDaCreare
+
+- [creo controller, model, migration e seeder tutto gia pronto (il nome in questo caso è Project):]
+php artisan make:model Project --all
+{
+    se vuoi il controller separato allora prima crei model, migration e seeder e successivamente
+    specifichi dove creare il controller con '--resource' alla fine 
+}

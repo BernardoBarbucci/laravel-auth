@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProjectController extends Controller
 {
@@ -14,8 +16,8 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
-        // stampato in admin/data
-        return view('admin.projects.index', compact('projects'));
+
+        return view('admin')
     }
 
     /**

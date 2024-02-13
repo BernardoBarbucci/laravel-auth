@@ -23,5 +23,11 @@ Route::middleware('auth')->gruop(function () {
     // rotte per gli admin
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+        // route per project
+        Route::resource('projects', ProjectController::class);
+
+        // route per i data
+        Route::get('/data', [AdminDashboardController::class, 'index'])->name('data.index');
     });
 });

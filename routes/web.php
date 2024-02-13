@@ -33,5 +33,9 @@ Route::middleware('auth')->gruop(function () {
         Route::post('/data/create', [AdminDashboardController::class, 'create'])->name('data.create');
         Route::post('/data/{data}', [AdminDashboardController::class, 'show'])->name('data.show');
         Route::post('/data/{data}/edit', [AdminDashboardController::class, 'edit'])->name('data.edit');
+        Route::put('/data/{data}', [AdminDashboardController::class, 'update'])->name('data.update');
+        Route::delete('/data/{data}', [AdminDashboardController::class, 'destroy'])->name('data.destroy');
     });
+
+    // reindirizzare gli utenti NON autenticati & NON admin alla welcome per login/iscrizione 
 });

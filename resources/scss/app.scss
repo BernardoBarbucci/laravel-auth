@@ -8,9 +8,6 @@
 @import 'bootstrap/scss/bootstrap';
 // @import '~bootstrap';
 
-// importo dashboard
-@import 'dashboard';
-
 // importa bootstrap (aggiunto manualmente, il resto sopra gia c'era)
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
@@ -18,5 +15,5 @@
 
 #main-dashboard {
     height: 100vh;
-    background: linear-gradient(135deg, black, rgb(0, 103, 2));
+    background: linear-gradient(135deg, black, #08df0b);
 }

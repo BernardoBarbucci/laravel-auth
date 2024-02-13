@@ -20,6 +20,6 @@ class DashboardController extends Controller
         // dd(Auth::user()->password, Hash::make('12345678'));
 
 
-        return 'Welcome Berni';
+        return view('admin.dashboard');
     }
 }

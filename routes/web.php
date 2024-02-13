@@ -15,24 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// rotta predefinita di autenticazione
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// rotte personalizzate 
-
-// questa in particolare restituisce la pagina di login dell'admin se entra, il tutto con middleware
-// Route::middleware('auth')->get('/dashboard', [ProjectController::class, 'index'])->name('admin.dashboard');
-
-// stessa route ma piu avanzata
-Route::middleware('auth')
-    ->name('admin')
-    ->prefix('admin')
-    ->group(function () {
-        Route::get('/dashboard', [ProjectController::class, 'index'])->name('admin.dashboard');
-        Route::resource('/data', ProjectController::class);
+// rotte per gli utenti loggati correttamente 
+Route::middleware('auth')->gruop(function () {
+    // rotte per gli admin
+    Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
+        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     });
+});

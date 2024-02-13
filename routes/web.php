@@ -39,10 +39,15 @@ Route::middleware('auth')->group(function () {
 
     // reindirizzare gli utenti NON autenticati & NON admin alla welcome per login/iscrizione 
     Route::get('/', function () {
-        if (auth()->user()->isAdmin) {
-            return redirect()->route('admin.dashboard');
+        if (auth()->check()) {
+            if (auth()->user()->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            } else {
+                // utenti non admin e loggati correttamente reindirizzati alla home
+                return redirect()->route('home');
+            }
         } else {
-            // utenti non admin e non loggati correttamente reindirizzati alla welcome
+            // utenti non admin e non loggati correttamente rispediti alla login
             return redirect()->route('login');
         }
     });

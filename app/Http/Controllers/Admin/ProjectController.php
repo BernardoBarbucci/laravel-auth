@@ -42,10 +42,10 @@ class ProjectController extends Controller
         // ])
 
         // crea un nuovo progetto con i dati validati
-        Project:.create($request->all());
+        // Project:.create($request->all());
 
         // reindirizzare user all'index quando ha creato un new project
-        
+
     }
 
     /**

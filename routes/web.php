@@ -19,36 +19,34 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // rotte per gli utenti loggati correttamente 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // rotte per gli admin
-    Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
-        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
-        // route per project
-        Route::resource('projects', ProjectController::class);
+    // route per project
+    Route::resource('projects', ProjectController::class);
 
-        // route per i data
-        Route::get('/data', [AdminDashboardController::class, 'index'])->name('data.index');
-        Route::post('/data', [AdminDashboardController::class, 'store'])->name('data.store');
-        Route::post('/data/create', [AdminDashboardController::class, 'create'])->name('data.create');
-        Route::post('/data/{data}', [AdminDashboardController::class, 'show'])->name('data.show');
-        Route::post('/data/{data}/edit', [AdminDashboardController::class, 'edit'])->name('data.edit');
-        Route::put('/data/{data}', [AdminDashboardController::class, 'update'])->name('data.update');
-        Route::delete('/data/{data}', [AdminDashboardController::class, 'destroy'])->name('data.destroy');
-    });
+    // route per i data
+    Route::get('/data', [AdminDashboardController::class, 'index'])->name('data.index');
+    Route::post('/data', [AdminDashboardController::class, 'store'])->name('data.store');
+    Route::post('/data/create', [AdminDashboardController::class, 'create'])->name('data.create');
+    Route::post('/data/{data}', [AdminDashboardController::class, 'show'])->name('data.show');
+    Route::post('/data/{data}/edit', [AdminDashboardController::class, 'edit'])->name('data.edit');
+    Route::put('/data/{data}', [AdminDashboardController::class, 'update'])->name('data.update');
+    Route::delete('/data/{data}', [AdminDashboardController::class, 'destroy'])->name('data.destroy');
+});
 
-    // reindirizzare gli utenti NON autenticati & NON admin alla welcome per login/iscrizione 
-    Route::get('/', function () {
-        if (auth()->check()) {
-            if (auth()->user()->role === 'admin') {
-                return redirect()->route('admin.dashboard');
-            } else {
-                // utenti non admin e loggati correttamente reindirizzati alla home
-                return redirect()->route('home');
-            }
+// reindirizzare gli utenti NON autenticati & NON admin alla welcome per login/iscrizione 
+Route::get('/', function () {
+    if (auth()->check()) {
+        if (auth()->user()->role === 'admin') {
+            return redirect()->route('admin.dashboard');
         } else {
-            // utenti non admin e non loggati correttamente rispediti alla login
+            // utenti non admin e loggati correttamente reindirizzati alla home
             return redirect()->route('login');
         }
-    });
+    } else {
+        // utenti non admin e non loggati correttamente rispediti alla login
+        return redirect()->route('login');
+    }
 });

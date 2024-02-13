@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
+
     public function index()
     {
         // dammi i dati dell'user loggato

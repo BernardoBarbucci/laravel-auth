@@ -38,4 +38,12 @@ Route::middleware('auth')->gruop(function () {
     });
 
     // reindirizzare gli utenti NON autenticati & NON admin alla welcome per login/iscrizione 
+    Route::get('/', function () {
+        if (auth()->user()->isAdmin) {
+            return redirect()->route('admin.dashboard');
+        } else {
+            // utenti non admin e non loggati correttamente reindirizzati alla welcome
+            return redirect()->route('welcome');
+        }
+    });
 });

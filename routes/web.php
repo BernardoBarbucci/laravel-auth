@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // rotte per gli utenti loggati correttamente 
-Route::middleware('auth')->gruop(function () {
+Route::middleware('auth')->group(function () {
     // rotte per gli admin
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
@@ -43,7 +43,7 @@ Route::middleware('auth')->gruop(function () {
             return redirect()->route('admin.dashboard');
         } else {
             // utenti non admin e non loggati correttamente reindirizzati alla welcome
-            return redirect()->route('welcome');
+            return redirect()->route('login');
         }
     });
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Project;
 
 class ProjectController extends Controller
 {
@@ -12,8 +13,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        $projects = Project::all();
         // stampato in admin/data
-        return view('admin.dashboard');
+        return view('admin.projects.index', compact('projects'));
     }
 
     /**
@@ -21,7 +23,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        // view per creare un new project
+        return view('admin.projects.create');
     }
 
     /**
@@ -29,7 +32,20 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validation
+        // $request->validate([
+        //     'title' => 'required',
+        //     ...
+        //     ...
+        //     ...
+        //     ... 
+        // ])
+
+        // crea un nuovo progetto con i dati validati
+        Project:.create($request->all());
+
+        // reindirizzare user all'index quando ha creato un new project
+        
     }
 
     /**

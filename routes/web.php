@@ -29,5 +29,9 @@ Route::middleware('auth')->gruop(function () {
 
         // route per i data
         Route::get('/data', [AdminDashboardController::class, 'index'])->name('data.index');
+        Route::post('/data', [AdminDashboardController::class, 'store'])->name('data.store');
+        Route::post('/data/create', [AdminDashboardController::class, 'create'])->name('data.create');
+        Route::post('/data/{data}', [AdminDashboardController::class, 'show'])->name('data.show');
+        Route::post('/data/{data}/edit', [AdminDashboardController::class, 'edit'])->name('data.edit');
     });
 });

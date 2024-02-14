@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 // rotta predefinita di autenticazione
@@ -31,9 +31,6 @@ Route::middleware('auth')
     ->name('admin.')
     ->group(function () {
 
-        // route per project
-        Route::resource('projects', ProjectController::class);
-
         // route per i data
         Route::get('/data', [ProjectController::class, 'index'])->name('data.index');
         Route::post('/data', [ProjectController::class, 'store'])->name('data.store');
@@ -42,19 +39,23 @@ Route::middleware('auth')
         Route::post('/data/{data}/edit', [ProjectController::class, 'edit'])->name('data.edit');
         Route::put('/data/{data}', [ProjectController::class, 'update'])->name('data.update');
         Route::delete('/data/{data}', [ProjectController::class, 'destroy'])->name('data.destroy');
+
+        // route per project
+        Route::resource('projects', ProjectController::class);
     });
+
 
 // reindirizzare gli utenti NON autenticati & NON admin alla welcome per login/iscrizione 
 Route::get('/', function () {
     if (auth()->check()) {
         if (auth()->user()->role === 'admin') {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('layouts.admin.app');
         } else {
             // utenti non admin e loggati correttamente reindirizzati alla home
-            return redirect()->route('login');
+            return redirect()->route('layout.guest.app');
         }
     } else {
         // utenti non admin e non loggati correttamente rispediti alla login
-        return redirect()->route('welcome');
+        return redirect()->route('login');
     }
 });

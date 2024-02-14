@@ -17,7 +17,7 @@ class ProjectController extends Controller
     {
         $projects = Project::all();
 
-        return view('admin')
+        return view('admin/projects/index', compact('projects'));
     }
 
     /**
@@ -25,6 +25,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $project = new Project();
         // view per creare un new project
         return view('admin.projects.create');
     }

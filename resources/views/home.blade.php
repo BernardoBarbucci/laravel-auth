@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.guest.app')
 
 @section('content')
 <div class="container">
@@ -15,6 +15,16 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    {{-- button-link in base al tipo di login effettuato --}}
+                    @auth
+                        @if(Auth::user()->isAdmin())
+                            <a href="{{ route('') }}" class="btn btn-primary">Admin Dashboard</a>
+                        @else
+                            <a href="{{ route('guest.dashboard') }}" class="btn btn-primary">Guest Dashboard</a>
+                        @endif
+                    @endauth
+
                 </div>
             </div>
         </div>

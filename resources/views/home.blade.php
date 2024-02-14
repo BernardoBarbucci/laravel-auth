@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mb-5">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
@@ -16,16 +16,34 @@
 
                     {{ __('You are logged in!') }}
 
-                    {{-- button-link in base al tipo di login effettuato --}}
-                    @auth
-                        @if(Auth::user()->isAdmin())
-                            <a href="{{ route('') }}" class="btn btn-primary">Admin Dashboard</a>
-                        @else
-                            <a href="{{ route('guest.dashboard') }}" class="btn btn-primary">Guest Dashboard</a>
-                        @endif
-                    @endauth
-
                 </div>
+            </div>
+            <div class="card">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-center">
+                        @auth
+                            <a href="{{ route('admin.projects.create') }}" class="btn btn-primary" style="width: 25rem">Create</a>
+                        @endauth
+                    </li>
+                    <li class="list-group-item d-flex justify-content-center">
+                        <a href="{{ route('admin.projects.destroy') }}" class="btn btn-primary" style="width: 25rem">Edit</a>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-center">
+
+                    </li>
+                    <li class="list-group-item d-flex justify-content-center">
+      
+                    </li>
+                    <li class="list-group-item d-flex justify-content-center">
+
+                    </li>
+                    <li class="list-group-item d-flex justify-content-center">
+
+                    </li>
+                    <li class="list-group-item d-flex justify-content-center">
+
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

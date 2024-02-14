@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class ProjectController extends Controller
 {
@@ -35,20 +36,17 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        // validation
-        // $request->validate([
-        //     'title' => 'required',
-        //     ...
-        //     ...
-        //     ...
-        //     ... 
-        // ])
+        $request->validate([
+            'description' => 'required',
+            'length' => 'required',
+            'duration' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'color' => 'required',
+        ]);
 
-        // crea un nuovo progetto con i dati validati
-        // Project:.create($request->all());
+        Project::create($request->all());
 
-        // reindirizzare user all'index quando ha creato un new project
-
+        return Redirect::route('admin.projects.index')->with('success', 'Progetto creato con successo!');
     }
 
     /**

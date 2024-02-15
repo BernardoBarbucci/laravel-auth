@@ -52,12 +52,3 @@
     </div>
 </div>
 @endsection
-
-
-                        {{-- qua sotto da è un test per mostrare X agli admin e Y agli user --}}
-                        {{-- @if(Auth::check() && Auth::user()->role === 'admin')
-                            <a href="{{ route('admin.projects.create') }}" class="btn btn-primary" style="width: 25rem">Create</a>
-                        @else
-                            <!-- Altri elementi per gli utenti non admin -->
-                            <p>Altri elementi per gli utenti non amministratori</p>
-                        @endif --}}

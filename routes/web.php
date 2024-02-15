@@ -49,7 +49,7 @@ Route::middleware('auth')
 Route::get('/', function () {
     if (auth()->check()) {
         if (auth()->user()->role === 'admin') {
-            return redirect()->route('layouts.admin.app');
+            return redirect()->route('admin.data.index');
         } else {
             // utenti non admin e loggati correttamente reindirizzati alla home
             return redirect()->route('home');

@@ -24,7 +24,7 @@
 
         @include('layouts.admin.header')
 
-        <main class="py-4">
+        <main class="border">
             @yield('content')
         </main>
 

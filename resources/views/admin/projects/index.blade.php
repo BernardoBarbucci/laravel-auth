@@ -1,11 +1,11 @@
 @extends('layouts.admin.app')
 
 @section('content')
-    <main class="container-fluid">
-        <section class="col-10 offset-1 bg-dark">
-            <h1 class="text-warning text-center">im the index</h1>
+    <main class="container-fluid bg-dark">
+        <section class="col-10 offset-1">
+            <h1 class="text-warning text-center">All projects</h1>
         </section>
-        <section class="col-12 bg-dark">
+        <section class="bg-dark d-flex flex-wrap justify-content-center">
             <div class="card" style="width: 15rem;">
                 <div class="row">
                     @foreach ($projects as $project)

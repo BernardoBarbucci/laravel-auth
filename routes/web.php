@@ -34,9 +34,9 @@ Route::middleware('auth')
         // route per i data
         Route::get('/data', [ProjectController::class, 'index'])->name('data.index');
         Route::post('/data', [ProjectController::class, 'store'])->name('data.store');
-        Route::post('/data/create', [ProjectController::class, 'create'])->name('data.create');
-        Route::post('/data/{data}', [ProjectController::class, 'show'])->name('data.show');
-        Route::post('/data/{data}/edit', [ProjectController::class, 'edit'])->name('data.edit');
+        Route::get('/data/create', [ProjectController::class, 'create'])->name('data.create');
+        Route::get('/data/{data}', [ProjectController::class, 'show'])->name('data.show');
+        Route::get('/data/{data}/edit', [ProjectController::class, 'edit'])->name('data.edit');
         Route::put('/data/{data}', [ProjectController::class, 'update'])->name('data.update');
         Route::delete('/data/{data}', [ProjectController::class, 'destroy'])->name('data.destroy');
 

@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="container-fluid bg-dark">
-        <section class="col-10 offset-1">
+        <section class="col-10 offset-1 p-3">
             <h1 class="text-warning text-center">All projects</h1>
         </section>
         <section class="bg-dark d-flex flex-wrap justify-content-around">
@@ -17,11 +17,17 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Length: {{ $project['length'] }}</li>
                             <li class="list-group-item">Duration: {{ $project['duration'] }}</li>
+                            <li class="list-group-item">Color: {{ $project['color'] }}</li>
+
                         </ul>
                         <div class="card-body d-flex justify-content-between">
-                            <a href="#" class="btn btn-success">Show</a>
-                            <a href="#" class="btn btn-warning">Edit</a>
-                            <a href="#" class="btn btn-success">Delete</a>
+                            <a href="{{ route('admin.data.show', $project) }}" class="btn btn-success">Show</a>
+                            <a href="{{ route('admin.data.edit', $project) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('admin.data.destroy', $project) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </div>

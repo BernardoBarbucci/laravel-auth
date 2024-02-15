@@ -18,13 +18,41 @@
 
                 </div>
             </div>
+            
             <div class="card">
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-center">
                         @auth
+                        <a href="{{ route('admin.projects.index') }}" class="btn btn-primary" style="width: 15rem">Projects list</a>
+                        @endauth
+                    </li>
+                    <li class="list-group-item d-flex justify-content-center">
+                        @auth
+                        <a href="{{ route('admin.projects.index') }}" class="btn btn-primary" style="width: 15rem">Projects list -> show</a>
+                        @endauth
+                    </li>
+                    <li class="list-group-item d-flex justify-content-center">
+                        @auth
                             <a href="{{ route('admin.projects.create') }}" class="btn btn-primary" style="width: 15rem">Create</a>
-                            
-                            @endauth
+                        @endauth
+                    </li>
+                    <li class="list-group-item d-flex justify-content-center">
+                        @auth
+                        <a href="{{ route('admin.projects.index') }}" class="btn btn-primary" style="width: 15rem">Projects list</a>
+                        @endauth
+                    </li>
+                    <li class="list-group-item d-flex justify-content-center">
+                        @auth
+                        <a href="{{ route('admin.projects.index') }}" class="btn btn-primary" style="width: 15rem">Projects list</a>
+                        @endauth
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
 
                         {{-- qua sotto da è un test per mostrare X agli admin e Y agli user --}}
                         {{-- @if(Auth::check() && Auth::user()->role === 'admin')
@@ -33,10 +61,3 @@
                             <!-- Altri elementi per gli utenti non admin -->
                             <p>Altri elementi per gli utenti non amministratori</p>
                         @endif --}}
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection

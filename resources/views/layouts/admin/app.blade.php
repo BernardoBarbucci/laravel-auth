@@ -2,6 +2,7 @@
 
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,17 +19,21 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+
+<body class="bg-dark">
 
     <div id="app">
 
         @include('layouts.admin.header')
 
-        <main class="border">
+        <main class="bg-dark">
             @yield('content')
         </main>
 
-        @include('layouts.admin.footer')
+        <div class="fixed-bottom pt-2">
+            @include('layouts.admin.footer')
+        </div>
     </div>
 </body>
+
 </html>

@@ -7,12 +7,12 @@
         </section>
         <section class="bg-dark d-flex justify-content-center">
             <div class="card m-2" style="width: 30rem; min-height= 20rem;">
-                {{-- <img src="{{ asset('images/' . $project['image']) }}" class="card-img-top" alt=""> --}}
+                <img src="{{ $project->image }}" class="card-img-top" alt="img">
                 <div class="card-body">
                     <h5 class="card-title"><strong>{{ $project->title }}</strong></h5>
-                    <p class="card-text">{{ $project->description }}</p>
                 </div>
                 <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Description: {{ $project->description }}</li>
                     <li class="list-group-item">Length: {{ $project->length }}</li>
                     <li class="list-group-item">Duration: {{ $project->duration }}</li>
                     <li class="list-group-item">Color: {{ $project->color }}</li>

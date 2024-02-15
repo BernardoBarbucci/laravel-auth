@@ -52,7 +52,7 @@ Route::get('/', function () {
             return redirect()->route('layouts.admin.app');
         } else {
             // utenti non admin e loggati correttamente reindirizzati alla home
-            return redirect()->route('layout.guest.app');
+            return redirect()->route('home');
         }
     } else {
         // utenti non admin e non loggati correttamente rispediti alla login

@@ -22,26 +22,17 @@
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-center">
                         @auth
+                            <a href="{{ route('admin.projects.create') }}" class="btn btn-primary" style="width: 15rem">Create</a>
+                            
+                            @endauth
+
+                        {{-- qua sotto da è un test per mostrare X agli admin e Y agli user --}}
+                        {{-- @if(Auth::check() && Auth::user()->role === 'admin')
                             <a href="{{ route('admin.projects.create') }}" class="btn btn-primary" style="width: 25rem">Create</a>
-                        @endauth
-                    </li>
-                    <li class="list-group-item d-flex justify-content-center">
-                        <a href="{{ route('admin.projects.destroy') }}" class="btn btn-primary" style="width: 25rem">Edit</a>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-center">
-
-                    </li>
-                    <li class="list-group-item d-flex justify-content-center">
-      
-                    </li>
-                    <li class="list-group-item d-flex justify-content-center">
-
-                    </li>
-                    <li class="list-group-item d-flex justify-content-center">
-
-                    </li>
-                    <li class="list-group-item d-flex justify-content-center">
-
+                        @else
+                            <!-- Altri elementi per gli utenti non admin -->
+                            <p>Altri elementi per gli utenti non amministratori</p>
+                        @endif --}}
                     </li>
                 </ul>
             </div>

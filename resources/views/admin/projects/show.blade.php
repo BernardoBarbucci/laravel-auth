@@ -18,7 +18,7 @@
                     <li class="list-group-item">Color: {{ $project->color }}</li>
                 </ul>
                 <div class="card-body d-flex justify-content-between">
-                    <a href="{{ route('admin.data.edit', ['data' => $project->id]) }}" class="btn btn-warning">Edit</a>
+                    <a href="{{ route('admin.data.edit', $project) }}" class="btn btn-warning">Edit</a>
                     <form action="{{ route('admin.data.destroy', $project) }}" method="POST">
                         @csrf
                         @method('DELETE')

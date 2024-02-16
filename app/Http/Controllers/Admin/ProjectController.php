@@ -44,7 +44,22 @@ class ProjectController extends Controller
             'color' => 'required',
         ]);
 
-        Project::create($request->all());
+        // save the new project
+        $project = new Project();
+        $project->title = $request->input('title');
+        $project->description = $request->input('description');
+        $project->length = $request->input('length');
+        $project->duration = $request->input('duration');
+        $project->color = $request->input('color');
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images');
+            $project->image = $imagePath;
+        }
+
+        $project->save();
+
+        // Project::create($request->all());
 
         return Redirect::route('admin.projects.index')->with('success', 'Progetto creato con successo!');
     }

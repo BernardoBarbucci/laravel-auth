@@ -30,7 +30,7 @@
             @yield('content')
         </main>
 
-        <div class="fixed-bottom pt-2">
+        <div class="pt-2">
             @include('layouts.admin.footer')
         </div>
     </div>

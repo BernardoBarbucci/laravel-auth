@@ -38,7 +38,7 @@ Route::middleware('auth')
         Route::get('/data/{project}', [ProjectController::class, 'show'])->name('data.show');
         Route::get('/data/{data}/edit', [ProjectController::class, 'edit'])->name('data.edit');
         Route::put('/data/{data}', [ProjectController::class, 'update'])->name('data.update');
-        Route::delete('/data/{data}', [ProjectController::class, 'destroy'])->name('data.destroy');
+        Route::delete('/data/{project}', [ProjectController::class, 'destroy'])->name('data.destroy');
 
         // route per project
         Route::resource('projects', ProjectController::class);

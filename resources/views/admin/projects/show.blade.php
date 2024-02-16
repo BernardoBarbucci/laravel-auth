@@ -9,13 +9,15 @@
             <div class="card m-2" style="width: 30rem; min-height= 20rem;">
                 <img src="{{ $project->image }}" class="card-img-top" alt="img">
                 <div class="card-body">
-                    <h5 class="card-title"><strong>{{ $project->title }}</strong></h5>
+                    <h3 class="card-title text-center"><strong>{{ $project->title }}</strong></h3>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Description: {{ $project->description }}</li>
-                    <li class="list-group-item">Length: {{ $project->length }}</li>
-                    <li class="list-group-item">Duration: {{ $project->duration }}</li>
-                    <li class="list-group-item">Color: {{ $project->color }}</li>
+                    <li class="list-group-item"><strong>Description:</strong> <br>
+                        {{ $project->description }}
+                    </li>
+                    <li class="list-group-item"><strong>Length:</strong> {{ $project->length }}</li>
+                    <li class="list-group-item"><strong>Duration:</strong> {{ $project->duration }}</li>
+                    <li class="list-group-item"><strong>Color:</strong> {{ $project->color }}</li>
                 </ul>
                 <div class="card-body d-flex justify-content-between">
                     <a href="{{ route('admin.data.edit', $project) }}" class="btn btn-warning">Edit</a>
